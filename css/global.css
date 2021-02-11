@@ -1,0 +1,656 @@
+body{
+    /* background-image: url(/images/BG.jpg);
+    background-size: cover;
+    background-attachment: fixed; */
+    background-color: black;
+    color: white;
+    margin: 80px auto 0;
+    position: relative;
+    width: 100%;
+}
+.box {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+.box::-webkit-scrollbar {
+    display: none; 
+}
+
+p,
+h2{
+    font-family: 'Gothic A1', sans-serif;
+}
+/* .material-icons.md-24 { font-size: 48px; } */
+/* body label.material-icons{
+    font-size: 48px;
+} */
+
+hr:not(:last-of-type){
+    margin:0 0 30px 0;
+}
+section.character h2,
+section.story h2,
+section.character ul li div strong{
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+section.character hr,
+section.story hr{
+    width: 4%; min-width: 50px; border-top: 2px solid #fff;
+    margin: 0 auto 30px;
+}
+body span > div,
+figure,
+section.character,
+section.story{
+    margin-bottom: 150px;
+}
+header div nav ul li a{
+    font-size: 14px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+@media screen and (min-width: 1280px){
+    body > label.start{
+        position: fixed;
+        left: 0; top: 0;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        transition: 0.5s ease-in;
+        overflow: hidden;
+        z-index: 5;
+        cursor: pointer;
+    }
+    body > input[type='checkbox']#start + label.start::after{
+        content: '';
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.0);
+        transition: 2s;
+    }
+    body > input[type='checkbox']#start:checked + label.start::after{
+        content: '';
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 50;
+        overflow: hidden;
+    }
+
+    body input[type='checkbox']#start:checked ~ header{
+        z-index: 100;
+    }
+    body input[type='checkbox']#start:checked ~ iframe{
+        z-index: 1;
+    }
+
+    body > label.start img{
+        width: 100%; opacity: 1;
+        cursor: pointer;
+    }
+
+    body > hr{
+        border-top: 2px solid rgb(255, 255, 255); opacity: 0.4;
+        margin :0;
+  
+    }
+    body input[type='checkbox']#start:checked + label.start{
+        z-index: 0;
+    }
+
+    header{
+        box-sizing:border-box;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        margin: 0 auto;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    header div{
+        width: 100%; margin: 0 auto;
+        vertical-align: middle;
+    }
+    header div::after{
+        display: block; visibility: hidden; clear: both;
+        content: '';
+    }
+    header div h1{
+        min-width: 200px;
+        width: 15%;
+        float: left;
+    }
+    header div h1 a{
+        display: block;
+    }
+    header div nav{
+        text-align: right;
+    }
+    header div nav label{
+        display: none;
+    }
+    header div nav ul li{
+        display: inline-block;
+        margin-left: 20px;
+    }
+    header div nav ul li a{
+        font-weight: 300;
+        width: 100%;
+    }
+
+    body > div{
+        width: 100%;
+        position: relative;
+        z-index: 1;
+    }
+    body > div >iframe{
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        width: 100%; max-width: 1270px;
+        height: 720px;
+    }
+
+    input[type='checkbox']{
+        display: none;
+    }
+
+    body > div label.fold{
+        margin-left: calc(50% - 24px);
+        margin-bottom: 150px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    body > div label.fold span{
+        font-size: 48px;
+    }
+
+    body > div label.fold + input[type='checkbox']#fold:checked + fieldset{
+        height: 100%;
+    }
+
+
+    body fieldset{
+        height: 0; overflow: hidden;
+        transition: 0.3s ease-in;
+        position: relative;
+        width: 100%;
+    }
+    body fieldset > span:first-of-type{
+        position: absolute;
+        right: 8%;
+        top: 85%;
+    }
+    body fieldset > span.fixed:first-of-type{
+        position: fixed;
+        cursor: pointer;
+        font-size: 48px;
+        z-index: 9999;
+    }
+
+    figure {
+        max-width: 1270px; margin: 0 auto 150px;
+    }
+    figure::after{
+        content: ''; display: block; visibility: hidden; clear: both;
+    }
+    figure figcaption{
+        float: right;
+        width: 55%;
+        
+    }
+    figure figcaption > *:not(:first-child){
+        margin-bottom: 50px;
+        font-size: 24px;
+        line-height: 36px;
+    }
+    figure figcaption :first-child{
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 36px;
+        text-align: right;
+    }
+
+    figure figcaption > p{
+        padding-left: 50px;
+    }
+    
+    figure figcaption a{
+        width: 125px; 
+        border: 1px solid rgba(255, 255, 255);
+        box-sizing: border-box;
+        border-radius: 10px;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        display: inline-block;
+        box-sizing: border-box;
+        background-color: #1b1b1b;
+        margin-left: 50px;
+        cursor: pointer;
+    }
+    figure figcaption a:hover{
+        background-color: #ea0e52;
+    }
+    figure figcaption a.hover{
+        background-color: #ea0e52;
+    }
+    
+    
+    figure figcaption a:last-of-type{
+        margin-left: 20px; 
+    }
+    figure figcaption a p{
+        display: inline-block;
+        line-height: 50px;
+        font-size: 18px;
+    }
+    figure figcaption a span{
+        font-size:24px;
+        vertical-align: middle;
+    }
+    footer{
+        height: 10%;
+        background-color: rgba(0, 0, 0);
+        position: relative;
+        padding-bottom: 30px;
+    }
+    footer hr{
+        margin-bottom: 30px;
+        border-top: solid 2px rgba(255, 255, 255);
+    }
+    footer p{
+        text-align: center;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px){
+    body{
+        max-width: 1279px;
+    }
+    body > label.start{
+        display: none;
+    }
+
+    body > hr{
+        border-top: 2px solid rgb(255, 255, 255); opacity: 0.4;
+        margin :0;
+    }
+
+    header{
+        box-sizing:border-box;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        margin: 0 auto;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        box-sizing: border-box;
+        padding: 20px;
+        max-width: 1279px;
+        z-index: 200;
+    }
+    header div{
+        width: 100%; margin: 0 auto;
+        vertical-align: middle;
+    }
+    header div::after{
+        display: block; visibility: hidden; clear: both;
+        content: '';
+    }
+    header div h1{
+        min-width: 200px;
+        width: 15%;
+        float: left;
+        margin-left: 20px;
+    }
+    header div h1 a{
+        display: block;
+    }
+    header div nav{
+        text-align: right;
+        margin-right: 15px;
+    }
+    header div nav label{
+        display: none;
+    }
+    header div nav ul li{
+        display: inline-block;
+        margin-left: 20px;
+    }
+    header div nav ul li a{
+        font-weight: 300;
+        width: 100%;
+    }
+
+    body > div label.fold{
+        display: none;
+    }
+
+    body > div >iframe{
+        display: block;
+        margin: 0 auto 100px;
+        position: relative;
+        width: 100%; max-width: 1270px;
+        height: 720px;
+    }
+
+    input[type='checkbox']{
+        display: none;
+    }
+
+    body > div > span.material-icons{
+        display: none;
+    }
+
+
+    body > div fieldset{
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    body fieldset > span:first-of-type{
+        position: fixed;
+        right: 8%;
+        top: 85%;
+        font-size: 48px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    figure {
+        max-width: 1024px; margin: 0 auto 150px;
+        text-align: center;
+    }
+
+    figure figcaption > *:not(:first-child){
+        margin-bottom: 50px;
+        font-size: 24px;
+        line-height: 36px;
+    }
+    figure figcaption :first-child{
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 36px;
+    }
+    figure figcaption h2{
+        text-align: center;
+    }
+    figure figcaption h2 > p{
+        width: 650px;
+        text-align: right;
+        margin: 0 auto;
+    }
+
+    figure figcaption a{
+        width: 125px; 
+        border: 1px solid rgba(255, 255, 255);
+        box-sizing: border-box;
+        border-radius: 10px;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        display: inline-block;
+        box-sizing: border-box;
+        background-color: #1b1b1b;
+        margin-left: 50px;
+    }
+    figure figcaption a:hover{
+        background-color: #ea0e52;
+    }
+    figure figcaption a.hover{
+        background-color: #ea0e52;
+    }
+    
+    figure figcaption a:last-of-type{
+        margin-left: 20px; 
+    }
+    figure figcaption a p{
+        display: inline-block;
+        line-height: 50px;
+        font-size: 18px;
+    }
+    figure figcaption a span{
+        font-size:24px;
+        vertical-align: middle;
+    }
+    footer{
+        height: 10%;
+        background-color: rgba(0, 0, 0);
+        position: relative;
+        padding-bottom: 30px;
+    }
+    footer hr{
+        margin-bottom: 30px;
+        border-top: solid 2px rgba(255, 255, 255);
+    }
+    footer p{
+        text-align: center;
+    }
+}
+@media screen and (max-width: 767px){
+    
+    section.character h2,
+    section.story h2,
+    section.character ul li div strong{
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 30px;
+    }
+    
+    body span > div,
+    figure,
+    section.character,
+    section.story{
+        margin-bottom: 50px;
+    }
+    p{
+        font-size: 12px;
+    }
+
+    body{
+        max-width: 767px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    body > label.start{
+        display: none;
+    }
+
+    body > hr{
+        border-top: 2px solid rgb(255, 255, 255); opacity: 0.4;
+        margin :0;
+    }
+
+    header{
+        box-sizing:border-box;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        margin: 0 auto;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        box-sizing: border-box;
+        padding: 10px;
+        z-index: 100;
+    }
+    header div{
+        width: 100%; margin: 0 auto;
+        vertical-align: middle;
+    }
+    header div::after{
+        display: block; visibility: hidden; clear: both;
+        content: '';
+    }
+    header div h1{
+        min-width: 200px;
+        width: 15%;
+        float: left;
+    }
+    header div h1 a{
+        display: block;
+    }
+    header div nav{
+        text-align: left;
+    }
+    header div nav > label{
+        float: right;
+    }
+    header div nav label.mui + input[type='checkbox']#mnav:checked + ul{
+        height: 100vh;
+        background-color: black;
+        opacity: 0.8;
+    }
+    header div nav ul{
+        position: absolute;
+        right: 0;top: 105%;
+        width: 100%;
+        height: 0; overflow: hidden;
+        transition: 0.3s ease-in;
+        text-align: center;
+        padding-top: 30px;
+        z-index: 30;
+    }
+
+    header div nav ul li{
+        display: block;
+        margin-bottom: 30px;
+    }
+    header div nav ul li a{
+        font-weight: 300;
+        width: 100%;
+    }
+
+    body > div{
+        width: 100%;
+        position: relative;
+        max-width: 767px;
+        margin-top: 70px;
+    }
+    body > div >iframe{
+        display: block;
+        margin: 0 auto 50px;
+        max-width: 767px;
+        width: 100%;
+        position: relative;
+    }
+
+    input[type='checkbox']{
+        display: none;
+    }
+
+    body > div label.fold{
+        display: none;
+    }
+
+    body > div fieldset{
+        width: 100%;
+        max-width: 767px;
+        margin: 0 auto;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    body fieldset > span:first-of-type{
+        position: fixed;
+        right: 8%;
+        top: 85%;
+        font-size: 36px;
+        cursor: pointer;
+    }
+
+    figure {
+        max-width: 767px; margin: 0 auto 150px;
+    }
+    figure img{
+        width: 100%;
+    }
+
+    figure figcaption{
+        width: 100%;  
+        text-align: center;
+    }
+    figure figcaption > *:not(:first-child){
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 24px;
+        text-align: center;
+    }
+    figure figcaption p{
+        font-size: 14px;
+        line-height: 24px;
+    }
+    figure figcaption h2{
+        margin-bottom: 25px;
+    }
+    figure figcaption h2 p{
+        font-weight: 400;
+        text-align: right;
+    }
+
+    figure figcaption > img{
+        width: 100%;
+    }
+    
+    figure figcaption a{
+        width: 125px; 
+        border: 1px solid rgba(255, 255, 255);
+        box-sizing: border-box;
+        border-radius: 5px;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        display: inline-block;
+        box-sizing: border-box;
+        background-color: #1b1b1b;
+    }
+    figure figcaption a:hover{
+        background-color: #ea0e52;
+    }
+    
+    figure figcaption a:last-of-type{
+        margin-left: 20px; 
+    }
+    figure figcaption a p{
+        display: inline-block;
+        font-size: 18px;
+    }
+    figure figcaption a span{
+        font-size: 20px;
+        vertical-align: middle;
+    }
+    figure figcaption a.hover{
+        background-color: #ea0e52;
+    }
+    footer{
+        height: 10%;
+        background-color: rgba(0, 0, 0);
+        position: relative;
+        padding-bottom: 30px;
+    }
+    footer hr{
+        margin-bottom: 30px;
+        border-top: solid 2px rgba(255, 255, 255);
+    }
+    footer p{
+        text-align: center;
+    }
+}
