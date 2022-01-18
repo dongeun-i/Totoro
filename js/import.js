@@ -60,6 +60,11 @@ $(document).ready(function(){
         $(this).children('span').text("menu")
       }
     })
+    $('.menu').on('click',function(ev){
+      let target = ev.target;
+      let targetClass = target.className;
+      scrollMenu(targetClass)
+    })
     $('body header nav ul li.poster').click(function(){
       if(!$('fieldset span').hasClass('fixed')){
         $("input:checkbox[name=fold]").prop("checked",true);
@@ -91,7 +96,8 @@ $(document).ready(function(){
       }
     })
     $('#start').on('change',function(){
-      player.playVideo()
+      $('.inducementClickBox').css({'display':'none'});
+      player.playVideo();
     })
 });
   // 2. This code loads the IFrame Player API code asynchronously.
@@ -110,5 +116,16 @@ $(document).ready(function(){
     });
   }
   var done = false;
+  function scrollMenu(id){
+    let target = document.getElementById(id);
+    let targetOffsetTop = $(target).offset().top;
+    console.log('targetOffset',targetOffsetTop);
+    if(!$('fieldset span').hasClass('fixed')){
+      $('fieldset span').addClass('fixed');
+      $("input:checkbox[name=fold]").prop("checked",true);
+      $('.fold').children('span').text("keyboard_arrow_up");
+    }
+    $('html,body').animate({scrollTop : targetOffsetTop}, 400);
+  }
 
 
