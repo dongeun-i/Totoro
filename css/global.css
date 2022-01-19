@@ -489,8 +489,8 @@ a{
     text-align: center;
     font-weight: 600;
     font-size: 18px;
-    line-height: 30px;
-    margin-bottom: 30px;
+    line-height: 20px;
+    margin-bottom: 20px;
     }
     
     body span > div,
@@ -658,6 +658,7 @@ a{
         display: inline-block;
         box-sizing: border-box;
         background-color: #1b1b1b;
+        padding: 5px 10px;
     }
     figure figcaption a:hover{
         background-color: #ea0e52;
@@ -668,11 +669,13 @@ a{
     }
     figure figcaption a p{
         display: inline-block;
-        font-size: 18px;
+        font-size: 12px;
+        line-height: 24px;
     }
     figure figcaption a span{
         font-size: 20px;
         vertical-align: middle;
+        line-height: 24px;
     }
     figure figcaption a.hover{
         background-color: #ea0e52;

@@ -42,6 +42,9 @@
     fieldset{
         position: relative;
     }
+    .m-guide-text{
+        display: none;
+    }
    
 
     section.story ol{
@@ -92,6 +95,9 @@
     }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px){
+    .m-guide-text{
+        font-size: 10px; color: #fff; text-align: center;
+    }
     section.character ul{
         max-width: 1270px;
         margin: 0 auto;
@@ -171,6 +177,9 @@
     }
 }
 @media screen and (max-width: 767px){
+    .m-guide-text{
+        font-size: 10px; color: #fff; text-align: center;
+    }
     section.character ul{
         max-width: 767px;
         margin: 0 auto;
