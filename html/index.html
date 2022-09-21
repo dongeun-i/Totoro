@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet">
+    <title>totoro</title>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="/css/import.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/js/import.js"></script>
@@ -13,8 +12,17 @@
 <body class="box">
     <input type="checkbox" name="start" id="start">
     <label for="start" class="start">
+        <div class="inducementClickBox">
+            <div class="motionBox">
+                <span class="material-icons-outlined">
+                    mouse
+                </span>
+            </div>
+            <p>Click !!</p>
+        </div>
         <img src="../images/BG.jpg" alt="">
     </label>
+    
     
     <header>
         <div>
@@ -29,17 +37,19 @@
                 </label>
                 <input type="checkbox" id="mnav" class="mui">
                 <ul>
-                    <li><a href="#poster">-POSTER</a></li>
-                    <li><a href="#character">-CHARACTER</a></li>
-                    <li><a href="#story">-STORY</a></li>
+                    <li class="menu"><p class="poster">-POSTER</p></li>
+                    <li class="menu"><p class="character">-CHARACTER</p></li>
+                    <li class="menu"><p class="story">-STORY</p></li>
                 </ul>
             </nav>
         </div>
     </header>
     
     <div>
-        <iframe id="preview" src="https://www.youtube.com/embed/BJXMFkjhttI?autoplay=1&mute=1/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-        </iframe><!-- 뮤트기능 추가시 &mute=1 URL에 복사 -->       
+        <div id="player"></div>
+        <!-- <iframe id="preview" src="https://www.youtube.com/embed/BJXMFkjhttI?autoplay=1&mute=1/" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> -->
+        <!-- 뮤트기능 추가시 &mute=1 URL에 복사 -->       
         <label for="fold" class="material-icons fold">
             <span class="material-icons">
             keyboard_arrow_down
@@ -52,97 +62,99 @@
                 vertical_align_top
             </span>
             <figure id="poster">
-            <img src="../images/POSTER_07.png" alt="poster">
-            <figcaption>
-                <h2>
-                    <p>#훈훈 #힐링영화 #킬링타임</p>
-                    <img src="../images/POSTER_08.png" alt="title">
-                </h2>
-                <p>엄마의 입원으로 두 어린 자매는 아빠와 함께 일본의 한 시골 마을에서 여름을 보내게 된다...</p>
-                <a href="" >
-                    <span class="material-icons">favorite_border</span> 
-                    <p>625</p>
-                </a>
-                <a href="" >
-                    <span class="material-icons">share</span>
-                     <p>공유하기</p>
-                </a>
-                <p>주연 : 하다카노리코,사카모토 치카, 이토이 시게사토
-                <br>장르 : 영화 ·일본 애니메이션, 일본 영화, 고전영화</p>
-        </figcaption>
+                <img src="../images/POSTER_07.png" alt="poster">
+                <figcaption>
+                    <h2>
+                        <p>#훈훈 #힐링영화 #킬링타임</p>
+                        <img src="../images/POSTER_08.png" alt="title">
+                    </h2>
+                    <p>엄마의 입원으로 두 어린 자매는 아빠와 함께 일본의 한 시골 마을에서 여름을 보내게 된다...</p>
+                    <a onclick="isLike()" class="like-btn">
+                        <span class="material-icons">favorite_border</span> 
+                        <p class="count">625</p>
+                    </a>
+                    <a onclick="copyUrl()">
+                        <span class="material-icons">share</span>
+                        <p>공유하기</p>
+                    </a>
+                    <p>주연 : 하다카노리코,사카모토 치카, 이토이 시게사토
+                    <br>장르 : 영화 ·일본 애니메이션, 일본 영화, 고전영화</p>
+                </figcaption>
             </figure>
-        
             <section class="character" id="character">
-        <h2>CHARACTER</h2>
-        <hr>
-        <ul>
-            <li>
-                <img src="../images/C_01.png" alt="">
-                <div>
-                    <strong>쿠사카베 사츠키</strong>
-                    <p>이름의 유래는 일본어로 음력 5월을 뜻하는 사츠키. 쿠사카베 가의 장녀로, 씩씩하고 밝은 성격을 가지고 있다. 어머니가 병원에 입원한 후 스스로 아침을 차리고 도시락을 쌀 정도로 어른스러운 면이 있다. </p>
-                    <p>이름의 유래는 일본어로 음력 5월을 뜻하는 사츠키. 쿠사카베 가의 장녀로, 씩씩하고 밝은 성격을 가지고 있다.</p>
-                </div>
-            </li>
-            <li>
-                <img src="../images/C_02.png" alt="">
-                <div>
-                    <strong>쿠사카베 메이</strong>
-                    <p>이름의 유래는 영어로 5월을 뜻하는 메이(May). 사츠키의 여동생으로, 아빠와 언니를 잘 따른다. 숲에서 놀다가 조그맣고 이상한 동물을 발견하고 뒤를 쫓아 숲속으로 들어가는데, 그곳에서 도토리 나무의 요정 토토로를 만난다.</p>
-                    <p>이름의 유래는 영어로 5월을 뜻하는 메이(May). 사츠키의 여동생으로, 아빠와 언니를 잘 따른다.</p>
-                </div>
-            </li>
-            <li>
-                <img src="../images/C_03.png" alt="">
-                <div>
-                    <strong>쿠사카베 타츠오</strong>
-                    <p>사츠키와 메이의 아빠. 도쿄에 위치한 한 대학에서 비상근 강사로 고고학을 가르치고 있으며, 생활비를 마련하기 위해 번역 작업을 하고 있다. 사츠키와 메이의 말을 그냥 넘기지 않고 하나하나 일일이 챙겨주는 자상한 아빠다</p>
-                    <p>사츠키와 메이의 아빠. 도쿄에 위치한 한 대학에서 비상근 강사로 고고학을 가르치고 있으며, 생활비를 마련하기 위해 번역 작업을 하고 있다.</p>
-                </div>
-            </li>
-            <li>
-                <img src="../images/C_04.png" alt="">
-                <div>
-                    <strong>쿠사카베 야스코</strong>
-                    <p>사츠키와 메이의 엄마. 건강이 악화되어서 옆 마을 시치코쿠야마 병원에 입원해 있다. 사츠키의 말에 따르면 예전부터 감기 비슷한 증세를 보여 잠시만 입원해 있기만 하면 된다고 하지만 실제로는 결핵 비슷한 증세로 오래 입원하는 듯하다.</p>
-                    <p>사츠키와 메이의 엄마. 건강이 악화되어서 옆 마을 시치코쿠야마 병원에 입원해 있다.</p>
-                </div>
-            </li>
-            <li>
-                <img src="../images/C_05.png" alt="">
-                <div>
-                    <strong>오오카키 칸타</strong>
-                    <p>사츠키가 시골로 이사를 온 이후 처음 만난 또래의 소년. 약간 무뚝뚝해보이지만 마음은 수줍다. 사츠키에게 짓궃게 대하지만 한편으로는 비 오는 날 사츠키와 메이에게 우산을 빌려줄 정도로 착하다. </p>
-                    <p>사츠키가 시골로 이사를 온 이후 처음 만난 또래의 소년. 약간 무뚝뚝해보이지만 마음은 수줍다.</p>
-                </div>
-            </li>
-            <li>
-                <img src="../images/C_06.png" alt="">
-                <div>
-                    <strong>칸타의 할머니</strong>
-                    <p>사츠키네 가족이 이사를 온 집의 이웃 할머니로, 사츠키네 가족에게 여러 도움을 주며 사츠키와 메이를 친손녀처럼 아껴준다.</p>
-                    <p>사츠키네 가족이 이사를 온 집의 이웃 할머니로, 사츠키네 가족에게 여러 도움을 주며 사츠키와 메이를 친손녀처럼 아껴준다.</p>
-                </div>
-            </li>
-            <li>
-                <img src="../images/C_07.png" alt="">
-                <div>
-                    <strong>토토로</strong>
-                    <p>숲에 기거하는 초자연적인 존재로서 외관은 2m가 넘는 커다란 털북숭이 이족보행 포유류의 모습을 하고 있다. 사츠키네 집 뒤에 있는 커다란 녹나무 아래의 동굴에서 생활하는 것 같다.</p>
-                    <p>숲에 기거하는 초자연적인 존재로서 외관은 2m가 넘는 커다란 털북숭이 이족보행 포유류의 모습을 하고 있다.</p>
-                </div>
-            </li>
-            <li>
-                <img src="../images/C_08.png" alt="">
-                <div>
-                    <strong>고양이 버스</strong>
-                    <p>토토로가 타고 다니는 버스. 얼굴에 항상 찢어질 듯한 미소를 띄고 있어 다소 기괴하게 생겼지만 몸에서 문을 만들어 마물들을 태우고 다니는 엄연한 버스다.</p>
-                    <p>토토로가 타고 다니는 버스로 얼굴에 항상 찢어질 듯한 미소를 띄고 있다.</p>
-                </div>
-            </li>
-        </ul>
+                <h2>
+                    CHARACTER
+                    <p class="m-guide-text">캐릭터를 터치하시면 설명을 보실 수 있습니다.</p> 
+                </h2>
+               
+                <hr>
+                <ul>
+                    <li>
+                        <img src="../images/C_01.png" alt="">
+                        <div>
+                            <strong>쿠사카베 사츠키</strong>
+                            <p>이름의 유래는 일본어로 음력 5월을 뜻하는 사츠키. 쿠사카베 가의 장녀로, 씩씩하고 밝은 성격을 가지고 있다. 어머니가 병원에 입원한 후 스스로 아침을 차리고 도시락을 쌀 정도로 어른스러운 면이 있다. </p>
+                            <p>이름의 유래는 일본어로 음력 5월을 뜻하는 사츠키. 쿠사카베 가의 장녀로, 씩씩하고 밝은 성격을 가지고 있다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../images/C_02.png" alt="">
+                        <div>
+                            <strong>쿠사카베 메이</strong>
+                            <p>이름의 유래는 영어로 5월을 뜻하는 메이(May). 사츠키의 여동생으로, 아빠와 언니를 잘 따른다. 숲에서 놀다가 조그맣고 이상한 동물을 발견하고 뒤를 쫓아 숲속으로 들어가는데, 그곳에서 도토리 나무의 요정 토토로를 만난다.</p>
+                            <p>이름의 유래는 영어로 5월을 뜻하는 메이(May). 사츠키의 여동생으로, 아빠와 언니를 잘 따른다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../images/C_03.png" alt="">
+                        <div>
+                            <strong>쿠사카베 타츠오</strong>
+                            <p>사츠키와 메이의 아빠. 도쿄에 위치한 한 대학에서 비상근 강사로 고고학을 가르치고 있으며, 생활비를 마련하기 위해 번역 작업을 하고 있다. 사츠키와 메이의 말을 그냥 넘기지 않고 하나하나 일일이 챙겨주는 자상한 아빠다</p>
+                            <p>사츠키와 메이의 아빠. 도쿄에 위치한 한 대학에서 비상근 강사로 고고학을 가르치고 있으며, 생활비를 마련하기 위해 번역 작업을 하고 있다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../images/C_04.png" alt="">
+                        <div>
+                            <strong>쿠사카베 야스코</strong>
+                            <p>사츠키와 메이의 엄마. 건강이 악화되어서 옆 마을 시치코쿠야마 병원에 입원해 있다. 사츠키의 말에 따르면 예전부터 감기 비슷한 증세를 보여 잠시만 입원해 있기만 하면 된다고 하지만 실제로는 결핵 비슷한 증세로 오래 입원하는 듯하다.</p>
+                            <p>사츠키와 메이의 엄마. 건강이 악화되어서 옆 마을 시치코쿠야마 병원에 입원해 있다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../images/C_05.png" alt="">
+                        <div>
+                            <strong>오오카키 칸타</strong>
+                            <p>사츠키가 시골로 이사를 온 이후 처음 만난 또래의 소년. 약간 무뚝뚝해보이지만 마음은 수줍다. 사츠키에게 짓궃게 대하지만 한편으로는 비 오는 날 사츠키와 메이에게 우산을 빌려줄 정도로 착하다. </p>
+                            <p>사츠키가 시골로 이사를 온 이후 처음 만난 또래의 소년. 약간 무뚝뚝해보이지만 마음은 수줍다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../images/C_06.png" alt="">
+                        <div>
+                            <strong>칸타의 할머니</strong>
+                            <p>사츠키네 가족이 이사를 온 집의 이웃 할머니로, 사츠키네 가족에게 여러 도움을 주며 사츠키와 메이를 친손녀처럼 아껴준다.</p>
+                            <p>사츠키네 가족이 이사를 온 집의 이웃 할머니로, 사츠키네 가족에게 여러 도움을 주며 사츠키와 메이를 친손녀처럼 아껴준다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../images/C_07.png" alt="">
+                        <div>
+                            <strong>토토로</strong>
+                            <p>숲에 기거하는 초자연적인 존재로서 외관은 2m가 넘는 커다란 털북숭이 이족보행 포유류의 모습을 하고 있다. 사츠키네 집 뒤에 있는 커다란 녹나무 아래의 동굴에서 생활하는 것 같다.</p>
+                            <p>숲에 기거하는 초자연적인 존재로서 외관은 2m가 넘는 커다란 털북숭이 이족보행 포유류의 모습을 하고 있다.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../images/C_08.png" alt="">
+                        <div>
+                            <strong>고양이 버스</strong>
+                            <p>토토로가 타고 다니는 버스. 얼굴에 항상 찢어질 듯한 미소를 띄고 있어 다소 기괴하게 생겼지만 몸에서 문을 만들어 마물들을 태우고 다니는 엄연한 버스다.</p>
+                            <p>토토로가 타고 다니는 버스로 얼굴에 항상 찢어질 듯한 미소를 띄고 있다.</p>
+                        </div>
+                    </li>
+                </ul>
             </section>
-        
             <section class="story" id="story">
                 <h2>STORY</h2>
                 <hr>
@@ -270,7 +282,7 @@
                         <p>다시 마을로 돌아오며 이야기는 마무리된다.</p>
                     </li>
                 </ol>
-                    </section>
+            </section>
         </fieldset>
     </div>
     <footer>

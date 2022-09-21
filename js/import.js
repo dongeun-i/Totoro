@@ -4,7 +4,7 @@ $(document).ready(function(){
     console.log($('section.story').eq(0).offset().top);
     console.log($(window).height()/2);
     var offset = $('body  div > fieldset figure').offset();
-    
+    // 스크롤 이벤트 
     $(document).scroll(function(){
     $('body > div fieldset section ol li').each(function(){
         $scroll = $(document).scrollTop();
@@ -21,7 +21,7 @@ $(document).ready(function(){
         }
     })
     });
-
+    // 접고펼치기
     $('.fold').click(function(){
       if(!$('fieldset span').hasClass('fixed')){
         $('fieldset span').addClass('fixed');
@@ -34,11 +34,11 @@ $(document).ready(function(){
         $('html,body').animate({scrollTop : 0}, 400);
       }
     })
-
+    // 상단으로 이동
     $('.top').click(function(){
       $('html,body').animate({scrollTop : 0}, 400);
     })
-
+    // 
     $('fieldset figure figcaption a:first-of-type').click(function(){
       if(!$(this).hasClass('hover')){
         $(this).addClass('hover')
@@ -60,6 +60,11 @@ $(document).ready(function(){
         $(this).children('span').text("menu")
       }
     })
+    $('.menu').on('click',function(ev){
+      let target = ev.target;
+      let targetClass = target.className;
+      scrollMenu(targetClass)
+    })
     $('body header nav ul li.poster').click(function(){
       if(!$('fieldset span').hasClass('fixed')){
         $("input:checkbox[name=fold]").prop("checked",true);
@@ -80,7 +85,6 @@ $(document).ready(function(){
         $('html,body').animate({scrollTop : 1765}, 400);
       }
     })
-
     $('body header nav ul li.story').click(function(){
       if(!$('fieldset span').hasClass('fixed')){
         $("input:checkbox[name=fold]").prop("checked",true);
@@ -91,7 +95,64 @@ $(document).ready(function(){
         $('html,body').animate({scrollTop : 2702}, 400);
       }
     })
+    $('#start').on('change',function(){
+      $('.inducementClickBox').css({'display':'none'});
+      player.playVideo();
+    })
+});
+function isLike(){
+  let count = $('.count');
+  let num_count = Number(count.text())
+  if($('.like-btn').hasClass('is-active')){
+    $('.like-btn').removeClass('is-active');
+    num_count =num_count-1;
+    count.text(num_count)
+  }else{
+    $('.like-btn').addClass('is-active');
+    num_count =num_count+1;
+    count.text(num_count)
+  }
+}
+function copyUrl(){
+  var obShareUrl = $('<input>')
+  obShareUrl.value = window.document.location.href;  // 현재 URL 을 세팅해 줍니다.
+  obShareUrl.select();  // 해당 값이 선택되도록 select() 합니다
 
+  document.execCommand("copy"); // 클립보드에 복사합니다.
+
+  obShareUrl.blur(); // 선택된 것을 다시 선택안된것으로 바꿈니다.
+
+  alert("URL이 클립보드에 복사되었습니다"); 
+}
+
+
+
+
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      videoId: 'BJXMFkjhttI',
     });
-
+  }
+  var done = false;
+  function scrollMenu(id){
+    let target = document.getElementById(id);
+    let targetOffsetTop = $(target).offset().top;
+    console.log('targetOffset',targetOffsetTop);
+    if(!$('fieldset span').hasClass('fixed')){
+      $('fieldset span').addClass('fixed');
+      $("input:checkbox[name=fold]").prop("checked",true);
+      $('.fold').children('span').text("keyboard_arrow_up");
+    }
+    $('html,body').animate({scrollTop : targetOffsetTop}, 400);
+  }
 
